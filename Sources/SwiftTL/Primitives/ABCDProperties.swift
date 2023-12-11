@@ -25,8 +25,8 @@ extension ABCDProperties {
 	}
 
 	var d: Vertex {
-		get { rawValue.columns.2.toVertex }
-		set { rawValue.columns.2 = newValue.toSimd3 }
+		get { rawValue.columns.3.toVertex }
+		set { rawValue.columns.3 = newValue.toSimd3 }
 	}
 }
 

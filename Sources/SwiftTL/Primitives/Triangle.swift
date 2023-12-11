@@ -28,8 +28,8 @@ public extension Triangle {
 	}
 
 	var normal: NormalVector {
-		get { columns.3 }
-		set { columns.3 = newValue }
+		get { d.toSimd3 }
+		set { d = newValue.toVertex }
 	}
 
 	init(vertices a: Vertex, _ b: Vertex, _ c: Vertex, normal: NormalVector, ccwOrder: Bool = true) {
