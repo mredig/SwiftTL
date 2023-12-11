@@ -25,7 +25,7 @@ public struct Box: Model {
 				posVerts.append([])
 				negVerts.append([])
 				defer { index += 1 }
-				for y in stride(from: 0, through: size.depth, by: xStepSize) {
+				for y in stride(from: 0, through: size.depth, by: yStepSize) {
 					posVerts[index].append(Vertex(size.width, y, z))
 					negVerts[index].append(Vertex(0, y, z))
 				}
@@ -41,7 +41,7 @@ public struct Box: Model {
 				posVerts.append([])
 				negVerts.append([])
 				defer { index += 1 }
-				for x in stride(from: 0, through: size.width, by: yStepSize) {
+				for x in stride(from: 0, through: size.width, by: xStepSize) {
 					posVerts[index].append(Vertex(x, size.depth, z))
 					negVerts[index].append(Vertex(x, 0, z))
 				}
@@ -53,11 +53,11 @@ public struct Box: Model {
 			var posVerts: [[Vertex]] = []
 			var negVerts: [[Vertex]] = []
 			var index = 0
-			for y in stride(from: 0, through: size.depth, by: zStepSize) {
+			for y in stride(from: 0, through: size.depth, by: yStepSize) {
 				posVerts.append([])
 				negVerts.append([])
 				defer { index += 1 }
-				for x in stride(from: 0, through: size.width, by: zStepSize) {
+				for x in stride(from: 0, through: size.width, by: xStepSize) {
 					posVerts[index].append(Vertex(x, y, size.height))
 					negVerts[index].append(Vertex(x, y, 0))
 				}
