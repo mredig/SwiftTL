@@ -1,5 +1,6 @@
 import Foundation
 
+public typealias Polygon = Triangle
 public struct Triangle: RawRepresentable, ABCDProperties {
 	public var rawValue: simd_double4x3
 
@@ -12,7 +13,6 @@ public struct Triangle: RawRepresentable, ABCDProperties {
 		self.init(rawValue: simd_double4x3(a, b, c, d))
 	}
 
-
 	public init(_ a: Vertex, _ b: Vertex, _ c: Vertex, _ d: NormalVector) {
 		self.init(a.rawValue, b.rawValue, c.rawValue, d)
 	}
@@ -23,21 +23,6 @@ public struct Triangle: RawRepresentable, ABCDProperties {
 }
 
 public extension Triangle {
-	var vertexA: Vertex {
-		get { a }
-		set { a = newValue }
-	}
-
-	var vertexB: Vertex {
-		get { b }
-		set { b = newValue }
-	}
-
-	var vertexC: Vertex {
-		get { c }
-		set { c = newValue }
-	}
-
 	var vertices: Vertices {
 		Vertices(a, b, c)
 	}
