@@ -14,7 +14,7 @@ public struct Box: Model {
 		let zDiv = max(heightDivisions, 1)
 
 		let xStepSize = size.width / Double(xDiv)
-		let yStepSize = size.width / Double(yDiv)
+		let yStepSize = size.depth / Double(yDiv)
 		let zStepSize = size.height / Double(zDiv)
 
 		let xFaceVerts: (pos: [[Vertex]], neg: [[Vertex]]) = {
