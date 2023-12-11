@@ -1,8 +1,6 @@
 import Foundation
 @_exported import simd
 
-public typealias NormalVector = SIMD3<Double>
-
 public class Generator {
 	public let name: String
 

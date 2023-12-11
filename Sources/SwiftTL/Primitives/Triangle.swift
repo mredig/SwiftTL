@@ -14,7 +14,7 @@ public struct Triangle: RawRepresentable, ABCDProperties {
 	}
 
 	public init(_ a: Vertex, _ b: Vertex, _ c: Vertex, _ d: NormalVector) {
-		self.init(a.rawValue, b.rawValue, c.rawValue, d)
+		self.init(a.rawValue, b.rawValue, c.rawValue, d.rawValue)
 	}
 
 	public init(rawValue: simd_double4x3) {
@@ -28,8 +28,8 @@ public extension Triangle {
 	}
 
 	var normal: NormalVector {
-		get { d.toSimd3 }
-		set { d = newValue.toVertex }
+		get { d.toSimd3.toNormalVector }
+		set { d = newValue.toSimd3.toVertex }
 	}
 
 	init(vertices a: Vertex, _ b: Vertex, _ c: Vertex, normal: NormalVector, ccwOrder: Bool = true) {
@@ -60,7 +60,7 @@ public extension Triangle {
 		let computedNormal = computeNormal(from: tri.vertices)
 
 		guard
-			simd_dot(computedNormal, simd_normalize(tri.normal)) >= 0
+			simd_dot(computedNormal.toSimd3, simd_normalize(tri.normal.toSimd3)) >= 0
 		else { return false }
 		return true
 	}
@@ -71,7 +71,7 @@ public extension Triangle {
 		var computedNormal = simd_cross(edge1, edge2)
 		computedNormal = simd_normalize(computedNormal)
 
-		return computedNormal
+		return computedNormal.toNormalVector
 	}
 
 	func toSTLTriangle() -> String {
