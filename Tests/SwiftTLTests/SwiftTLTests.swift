@@ -80,6 +80,16 @@ final class SwiftTLTests: XCTestCase {
 
 		XCTAssertEqual(gen2Expectation, flatBox.toSTL())
 	}
+
+	func testArbitraryBox() throws {
+		let box = Box(size: Size(10, 20, 30), widthDivisions: 10, depthDivisions: 20, heightDivisions: 30)
+
+		let gen = Generator(name: "a box")
+		box.polygons.forEach { gen.addTriangle($0) }
+
+		let render = gen.toSTL()
+		XCTAssertEqual(boxExpectation, render)
+	}
 }
 
 extension CGSize {
