@@ -22,8 +22,8 @@ public struct Size: RawRepresentable, Hashable, Codable {
 		self.rawValue = rawValue
 	}
 
-	public init(_ a: Double, _ b: Double, _ c: Double) {
-		self.init(rawValue: SIMD3<Double>(a, b, c))
+	public init(_ width: Double, _ depth: Double, _ height: Double) {
+		self.init(rawValue: SIMD3<Double>(width, depth, height))
 	}
 }
 

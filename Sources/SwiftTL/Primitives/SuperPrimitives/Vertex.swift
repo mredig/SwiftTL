@@ -22,8 +22,8 @@ public struct Vertex: RawRepresentable, Hashable, Codable {
 		self.rawValue = rawValue
 	}
 
-	public init(_ a: Double, _ b: Double, _ c: Double) {
-		self.init(rawValue: SIMD3<Double>(a, b, c))
+	public init(_ x: Double, _ y: Double, _ z: Double) {
+		self.init(rawValue: SIMD3<Double>(x, y, z))
 	}
 }
 
