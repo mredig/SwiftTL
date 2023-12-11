@@ -1,6 +1,6 @@
 import Foundation
 
-public struct Plane {
+public struct Plane: Hashable, Codable {
 	public let triangle1: Triangle
 	public let triangle2: Triangle
 

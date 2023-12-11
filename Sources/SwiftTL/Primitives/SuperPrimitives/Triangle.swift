@@ -1,7 +1,7 @@
 import Foundation
 
 public typealias Polygon = Triangle
-public struct Triangle: RawRepresentable, ABCDProperties {
+public struct Triangle: RawRepresentable, ABCDProperties, Hashable, Codable {
 	public var rawValue: simd_double4x3
 
 	fileprivate var columns: (SIMD3<Double>, SIMD3<Double>, SIMD3<Double>, SIMD3<Double>) {
@@ -90,6 +90,8 @@ public extension Triangle {
 extension Triangle {
 	public struct Vertices: RawRepresentable {
 		public var rawValue: simd_double3x3
+
+		public var asArray: [Vertex] { [a, b, c] }
 
 		public var a: Vertex {
 			get { rawValue.columns.0.toVertex }

@@ -1,6 +1,6 @@
 import Foundation
 
-public struct Vertex: RawRepresentable {
+public struct Vertex: RawRepresentable, Hashable, Codable {
 	public var rawValue: SIMD3<Double>
 
 	public var x: Double {
